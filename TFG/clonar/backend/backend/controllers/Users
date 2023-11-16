@@ -1,0 +1,207 @@
+
+
+const { User } = require('../models/models');
+const { spawn } = require('child_process');
+const fs = require('fs');
+
+exports.createUser = async (req, res) => {
+  const { name, password } = req.body;
+
+  let responseSent = false; // Bandera para rastrear si ya se ha enviado una respuesta
+
+  try {
+    const filePath = `../../../accountsExist/${name}.txt`;
+    const fs = require('fs');
+    const { spawn } = require('child_process');
+
+    // Lanza la script de Python en segundo plano
+    const pythonProcess = spawn('python', ['../../../login automaticoo/login-automatico.py', name, password], {
+      detached: true, // Ejecutar en segundo plano
+      stdio: 'ignore',  // Redirigir la entrada/salida estándar
+    });
+
+    pythonProcess.unref(); // Permite que el proceso secundario se ejecute independientemente
+
+    // Función para comprobar si el archivo existe y contiene "1" con un límite de tiempo
+    const waitForFile = (filePath, timeout, interval) => {
+      return new Promise((resolve, reject) => {
+        const startTime = Date.now();
+        const checkFile = () => {
+          if (fs.existsSync(filePath)) {
+            const fileContent = fs.readFileSync(filePath, 'utf8');
+            if (fileContent.trim() === '1') {
+              // Elimina el archivo
+              //fs.unlinkSync(filePath);
+              fs.unlinkSync(filePath);
+              resolve("Usuario existe");
+            } else {
+              // Elimina el archivo antes de rechazar la promesa
+              fs.unlinkSync(filePath);
+              reject(new Error('Usuario incorrecto'));
+              
+            }
+          } else {
+            if (Date.now() - startTime >= timeout) {
+              //fs.unlinkSync(filePath);
+              reject(new Error('Pasó 1 minuto y el archivo no apareció'));
+            } else {
+              setTimeout(checkFile, interval);
+            }
+          }
+        };
+        checkFile();
+      });
+    };
+
+    // Esperar hasta que el archivo aparezca y contiene "1" o hasta que pase 1 minuto
+    await waitForFile(filePath, 60000, 1000); // Esperar hasta 60 segundos con intervalos de 1 segundo
+    
+    //reconocimiento si es 1 fa o 2fa
+  
+
+    async function Espera(filePath, timeout) {
+      return new Promise((resolve, reject) => {
+        const startTime = Date.now();
+    
+        const esperaArchivo = () => {
+          if (fs.existsSync(filePath)) {
+            resolve();
+          } else {
+            if (Date.now() - startTime >= timeout) {
+              reject(new Error(`Pasaron ${timeout / 1000} segundos y el archivo no apareció`));
+            } else {
+              setTimeout(esperaArchivo, 100);
+            }
+          }
+        };
+    
+        esperaArchivo();
+      });
+    }
+
+    const filePath2 = `../../../2FA/${name}.txt`;
+    await Espera(filePath2, 15000);
+    if (fs.existsSync(filePath2)) {
+      console.log("Ha entrado")
+      // Leer el contenido del archivo
+      const fileContent2 = fs.readFileSync(filePath2, 'utf8').trim();
+
+      // Eliminar el archivo después de leerlo
+      fs.unlinkSync(filePath2);
+
+      // Determinar el valor de 2fa en función del contenido del archivo
+      is2FAEnabled = fileContent2 === '1';
+      console.log("El contenido es "+fileContent2)
+       if (is2FAEnabled==true){
+          console.log("es true")
+       }else{
+          console.log("es false")
+        }
+    }else{
+      console.log("no ha entrado")
+      throw new Error('El archivo en la carpeta 2fa no existe');
+    }
+    
+    // El archivo existe y contiene '1', se puede crear el usuario
+    const newUser = await User.create({
+      name,
+      password,
+    });
+
+    // Enviar una respuesta al cliente
+    res.status(201).json({ message: 'Usuario creado con éxito', user: newUser,MF:is2FAEnabled });
+
+  } catch (error) {
+    // Manejo de errores aquí
+    console.error(error);
+    if (!responseSent) {
+      responseSent = true;
+      if (error.message === 'Usuario incorrecto') {
+        res.status(400).json({ error: 'Usuario incorrecto' });
+      } else {
+        res.status(500).json({ error: 'Error interno del servidor' });
+      }
+    }
+  }
+};
+
+
+
+
+
+/** Funciona
+// Controlador para crear un nuevo usuario
+exports.createUser = async (req, res) => {
+  const { name, password } = req.body;
+
+  let responseSent = false; // Bandera para rastrear si ya se ha enviado una respuesta
+
+  try {
+    // Crea un nuevo usuario en la base de datos
+    const newUser = await User.create({
+      name,
+      password,
+    });
+
+    // Lanza la script de Python en segundo plano
+    const pythonProcess = spawn('python', ['../../../login automaticoo/login-automatico2.py', name, password], {
+      detached: true, // Ejecutar en segundo plano
+      stdio: 'ignore',  // Redirigir la entrada/salida estándar
+    });
+
+    pythonProcess.unref(); // Permite que el proceso secundario se ejecute independientemente
+
+    // Enviar una respuesta inmediata al cliente
+    res.status(201).json({ message: 'Usuario creado con éxito', user: newUser });
+
+  } catch (error) {
+    // Manejo de errores aquí
+    console.error(error);
+    if (!responseSent) {
+      responseSent = true;
+      res.status(500).json({ error: 'Error interno del servidor' });
+    }
+  }
+};
+*/
+
+
+
+
+
+
+// Controlador para crear un nuevo número y asociarlo a un usuario
+
+
+exports.createNumero = async (req, res) => {
+  const { num, userId } = req.body;
+
+  try {
+    // Busca al usuario por su id
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    // Actualiza la columna 'numero' del usuario con el nuevo número
+    user.number = num;
+    await user.save();
+
+    // Crear un archivo de texto con el número, utilizando el nombre del usuario
+    const fileName = `../../../codigos/${user.name}.txt`;
+
+    fs.writeFileSync(fileName, num.toString()); // Guardar el número como texto en el archivo
+
+    // Envía una respuesta de éxito
+    res.status(201).json({ message: 'Número creado y asociado al usuario con éxito' });
+
+  } catch (error) {
+    // Manejo de errores aquí
+    console.error(error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
+
+
+

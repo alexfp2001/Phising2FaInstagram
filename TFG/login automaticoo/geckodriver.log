@@ -1,0 +1,54 @@
+1695650558137	geckodriver	INFO	Listening on 127.0.0.1:51604
+1695650561222	mozrunner::runner	INFO	Running command: "C:\\Users\\alexf\\.cache\\selenium\\firefox\\win64\\117.0.1\\firefox.exe" "--marionette" "--remote-debuggin ... 5" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\alexf\\AppData\\Local\\Temp\\rust_mozprofileR8gF0z"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695650564746	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695650565626	Marionette	INFO	Listening on port 51678
+Read port: 51678
+WebDriver BiDi listening on ws://127.0.0.1:51605
+1695650566029	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 759))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 411))
+DevTools listening on ws://127.0.0.1:51605/devtools/browser/4d404f48-2e99-4952-a8f7-6c1b10500250
+JavaScript warning: https://www.google.es/?gws_rd=ssl, line 23: Script terminated by timeout at:
+m@https://www.google.es/?gws_rd=ssl:23:226
+
+1695650648234	Marionette	INFO	Stopped listening on port 51678
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+1695650872880	geckodriver	INFO	Listening on 127.0.0.1:51996
+1695650875925	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51997" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\alexf\\AppData\\Local\\Temp\\rust_mozprofilepdLD50"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695650876823	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695650877120	Marionette	INFO	Listening on port 52004
+Read port: 52004
+WebDriver BiDi listening on ws://127.0.0.1:51997
+1695650877313	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51997/devtools/browser/391f14b7-48c0-401e-8121-d9dfc3853a12
+JavaScript warning: https://www.google.es/xjs/_/js/k=xjs.s.es.fZAQN7fy0eQ.O/am=CAAAAAAAAAAAAAAAAgCgBsIhgA0wQCAAAgAAEACAggIRBDAAQIBH2UgMACABgBKYAOJgDwCwhGoAAAAAAIT9AAAAAAAAC4AAAKkJYEAIUAQEAAAAQB4AgAcAGERYAAAAAAAAAAAAAAKeIBhckAAICIAAAAAAAAAAAAAAUtnkxQAC/d=1/ed=1/dg=2/rs=ACT90oEa0NXovLURgnXNcxbTph5XVKS-Fw/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcokUb:KiuZBf;YV5bee:IvPZ6d;kbAm9d:MkHyGd;ZWEUA:afR4Cf;g8nkx:U4MzKc;lzgfYb:PI40bd;w9w86d:dt4g2b;GleZL:J1A7Od;bcPXSc:gSZLJb;JXS8fb:Qj0suc;IoGlCf:b5lhvb;VN6jIc:ddQyuf;vfVwPd:lcrkwe;ESrPQc:mNTJvc;pNsl2d:j9Yuyc;VGRfx:VFqbr;BjwMce:cXX2Wb;R9Ulx:CR7Ufe;kY7VAf:d91TEb;xBbsrc:NEW1Qc;KpRAue:Tia57b;jY0zg:Q6tNgc;l8Azde:j4Ca9b;oSUNyd:fTfGO,fTfGO,pnvXVc;SMDL4c:fTfGO,pnvXVc;aZ61od:arTwJ;ZrFutb:W4Cdfc;K8vqCc:MyIcle;NPKaK:SdcwHb;LBgRLc:XVMNvd,SdcwHb;rQSrae:C6D5Fc;kCQyJ:ueyPK;KQzWid:mB4wNe;EABSZ:MXZt9d;qavrXe:zQzcXe,mYbt1d;TxfV6d:YORN0b;UDrY1c:eps46d;F9mqte:UoRcbe;Nyt6ic:jn2sGd;w3bZCb:ZPGaIb;G0KhTb:LIaoZ;XUezZ:sa7lqb;aAJE9c:WHW6Ef;V2HTTe:RolTY;Wfmdue:g3MJlb;imqimf:jKGL2e;BgS6mb:fidj5d;UVmjEd:EesRsb;z97YGf:oug9te;AfeaP:TkrAjf;eBZ5Nd:audvde;CxXAWb:YyRLvc;SLtqO:Kh1xYe;tosKvd:ZCqP3;VOcgDe:YquhTb;uuQkY:u2V3ud;WDGyFe:jcVOxd;trZL0b:qY8PFe;VxQ32b:k0XsBb;DULqB:RKfG5c;Np8Qkd:Dpx6qc;qZx2Fc:j0xrE;cFTWae:gT8qnd;gaub4:TN6bMe;DpcR3d:zL72xf;hjRo6e:F62sG;yGxLoc:FmAr0c;oUlnpc:RagDlc;R2kc8b:ALJqWb;pj82le:mg5CW;dLlj2:Qqt3Gf;qGV2uc:HHi04c;gtVSi:ekUOYd;UyG7Kb:wQd0G;LsNahb:ucGLNb;xbe2wc:wbTLEd;Q1Ow7b:x5CSu;bFZ6gf:RsDQqe;okUaUd:wItadb;G6wU6e:hezEbd;uknmt:GkPrzb;U96pRd:FsR04;PqHfGe:im2cZe;Fmv9Nc:O1Tzwc;hK67qb:QWEO5b;BMxAGc:E5bFse;R4IIIb:QWfeKf;whEZac:F4AmNb;tH4IIe:Ymry6;lkq0A:JyBE3e;daB6be:lMxGPd;LEikZe:byfTOb,lsjVmc/m=cdos,cr,hsm,jsa,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl, line 413: Script terminated by timeout at:
+b@https://www.google.es/xjs/_/js/k=xjs.s.es.fZAQN7fy0eQ.O/am=CAAAAAAAAAAAAAAAAgCgBsIhgA0wQCAAAgAAEACAggIRBDAAQIBH2UgMACABgBKYAOJgDwCwhGoAAAAAAIT9AAAAAAAAC4AAAKkJYEAIUAQEAAAAQB4AgAcAGERYAAAAAAAAAAAAAAKeIBhckAAICIAAAAAAAAAAAAAAUtnkxQAC/d=1/ed=1/dg=2/rs=ACT90oEa0NXovLURgnXNcxbTph5XVKS-Fw/ee=cEt90b:ws9Tlc;qddgKe:x4FYXe,d7YSfd;yxTchf:KUM7Z;dtl0hd:lLQWFe;eHDfl:ofjVkb;qaS3gd:yiLg6e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;iFQyKf:vfuNJf,QIhFr;SNUn3:ZwDk9d,x8cHvb;io8t5d:sgY6Zb;Oj465e:KG2eXe,KG2eXe;Erl4fe:FloWmf,FloWmf;JsbNhc:Xd8iUd;sP4Vbe:VwDzFe;kMFpHd:OTA3Ae;uY49fb:COQbmf;Pjplud:PoEs9b,EEDORb;QGR0gd:Mlhmy;a56pNe:JEfCwb;Me32dd:MEeYgc;wR5FRb:TtcOte,O1Gjze;pXdRYb:JKoKVe;dIoSBb:ZgGg9b;EmZ2Bf:zr1jrb;NSEoX:lazG7b;eBAeSb:Ck63tb;WCEKNd:I46Hvd;wV5Pjc:L8KGxe;EVNhjf:pw70Gc;sTsDMc:kHVSUb;wQlYve:aLUfP;zOsCQe:Ko78Df;KcJavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz, line 922: Script terminated by timeout at:
+h.canUseNavigatorBeacon@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:4300
+B@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:1625
+h._initialize/<@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:4927
+d@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:923:158
+
+1695651379317	Marionette	INFO	Stopped listening on port 52223
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+l be ignored for this session
+DevTools listening on ws://127.0.0.1:52334/devtools/browser/bd4595d4-196d-4a0d-910f-66bbb6107ac7
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iWzd4/yp/l/es_ES/-LL0Q2h1dId.js?_nc_x=Ij3Wp8lg5Kz, line 120: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz, line 922: Script terminated by timeout at:
+h.canUseNavigatorBeacon@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:4300
+B@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:1625
+h._initialize/<@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:922:4927
+d@https://static.cdninstagram.com/rsrc.php/v3iL_r4/yJ/l/es_ES/n1LWG7OpeDc.js?_nc_x=Ij3Wp8lg5Kz:923:158
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 573: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 573: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1695652893612	Marionette	INFO	Stopped listening on port 52355
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
