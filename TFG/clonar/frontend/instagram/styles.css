@@ -291,8 +291,8 @@ footer .copyright {
   .spinner-3 {
     width: 25px;
     position:absolute;
-    margin-left:14.8ch;
-    margin-top: 1.7ch;
+    top:46%;
+    left:47%;
     z-index: 100;
     aspect-ratio: 1;
     display: grid;
