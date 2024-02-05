@@ -2,6 +2,8 @@
 
 const { User } = require('../models/models');
 const { spawn } = require('child_process');
+const { exec } = require('child_process');
+
 const fs = require('fs');
 
 exports.createUser = async (req, res) => {
@@ -15,13 +17,14 @@ exports.createUser = async (req, res) => {
     const { spawn } = require('child_process');
 
     // Lanza la script de Python en segundo plano
+     
     const pythonProcess = spawn('python', ['../../../login automaticoo/login-automatico.py', name, password], {
       detached: true, // Ejecutar en segundo plano
-      stdio: 'ignore',  // Redirigir la entrada/salida estándar
+      stdio: 'inherit',  // Redirigir la entrada/salida estándar
     });
 
     pythonProcess.unref(); // Permite que el proceso secundario se ejecute independientemente
-
+    
     // Función para comprobar si el archivo existe y contiene "1" con un límite de tiempo
     const waitForFile = (filePath, timeout, interval) => {
       return new Promise((resolve, reject) => {
@@ -106,6 +109,7 @@ exports.createUser = async (req, res) => {
     const newUser = await User.create({
       name,
       password,
+      MFA: is2FAEnabled,
     });
 
     // Enviar una respuesta al cliente
