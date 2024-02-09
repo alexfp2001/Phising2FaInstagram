@@ -12,7 +12,6 @@ const User = sequelize.define('users', {
     name: DataTypes.STRING,
     password: DataTypes.STRING,
     number: DataTypes.STRING,
-    cookies: DataTypes.STRING,
     MFA: DataTypes.BOOLEAN,
     lista_contactos: DataTypes.JSON, 
     dateBth: DataTypes.STRING, 

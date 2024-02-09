@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.custom-profile-image img,
+.custom-gallery-video,
+.custom-gallery-image {
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    width: 100%; /* Ajusta al contenedor */
+    border-radius: 50%; /* Si quieres una imagen de perfil redonda */
+    border: none; /* Elimina el borde */
+}
+
+/* Si el recuadro es un 'outline' que aparece al hacer clic, puedes intentar lo siguiente: */
+.custom-profile-image img:focus,
+.custom-gallery-video:focus,
+.custom-gallery-image:focus {
+    outline: none;
+}
+
+
+.profile-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 80%; /* O el ancho que prefieras */
+  max-width: 500px; /* O el máximo ancho que prefieras */
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+
+.profile-modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em; /* Tamaño del ícono de cierre */
+  cursor: pointer;
+}
+
+.profile-modal-body {
+  max-height: 400px; /* O la altura máxima que prefieras */
+  overflow-y: auto; /* Habilita el scroll si el contenido es muy largo */
+}
+
+/* Ajustes para botones dentro del modal */
+.profile-modal .btn {
+  font-size: 1rem; /* Ajusta el tamaño del texto en los botones */
+  padding: 10px 20px; /* Ajusta el padding para hacer el botón más grande */
+}
+
+/* Asegúrate de que el fondo oscuro cubra toda la pantalla */
+.profile-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes para mejorar la visibilidad del contenido del modal */
+.profile-modal-content {
+  color: #333; /* Color del texto */
+  font-size: 1rem; /* Tamaño del texto */
+}
+
+/* Si estás usando íconos, puedes ajustar su tamaño así */
+.profile-fas {
+  font-size: 1.5em; /* Ajusta el tamaño del ícono */
+}
+

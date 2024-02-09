@@ -11,7 +11,8 @@ require("dotenv").config()
 
 app.use(express.json())
 
-
+const rutaRelativaImagenes = '../../../imagenes';
+app.use('/TFG/imagenes', express.static(path.join(__dirname, rutaRelativaImagenes)));
 
 app.use(cors({
    origin: process.env.IP

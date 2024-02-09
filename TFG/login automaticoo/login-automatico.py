@@ -161,7 +161,7 @@ try:
     prifile_Src = profilePicture[0].get_attribute('src')
     response = requests.get(prifile_Src,allow_redirects=True)
     open('../../../imagenes/' + USERNAME + '(FotoPerfil).png', 'wb').write(response.content)
-    rutaPublicaciones.append('TFG/imagenes/'+USERNAME+' (FotoPerfil).png')
+    rutaPublicaciones.append('TFG/imagenes/'+USERNAME+'(FotoPerfil).png')
 
 except TimeoutException:
     print("No se ha detectado foto de perfil")
@@ -330,7 +330,7 @@ for j in range(1,int((int(postNum)/3)+2)):
             else:
                 response = requests.get(video_src,allow_redirects=True)
                 open('../../../imagenes/' + USERNAME + ' ('"Post"+ str(fotoActual) +"_Video"+ str(posicionImagen)+').mp4', 'wb').write(response.content)
-                rutaPublicaciones.append('TFG/imagenes/'+USERNAME+'('"Post"+ str(fotoActual) +"_Video"+ str(posicionImagen)+').png')
+                rutaPublicaciones.append('TFG/imagenes/'+USERNAME+'('"Post"+ str(fotoActual) +"_Video"+ str(posicionImagen)+').mp4')
 
             print("Video encontrado y descargado exitosamente.")
         except NoSuchElementException:

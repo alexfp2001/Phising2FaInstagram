@@ -1,0 +1,3 @@
+Valor de sessionid: [object Object]
+Valor de sessionid: 44939014568%3AOsZez1DyVall3a%3A22%3AAYeuIP_oYhqAy-P-utZwmrDkp01yOfnHeM-C4AkSKg
+Valor de sessionid: 44939014568%3AOsZez1DyVall3a%3A22%3AAYeuIP_oYhqAy-P-utZwmrDkp01yOfnHeM-C4AkSKg
