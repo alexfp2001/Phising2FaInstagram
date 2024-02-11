@@ -166,14 +166,16 @@ function PerfilUsuario() {
                                 <button className="btn custom-profile-edit-btn" onClick={toggleSensitiveData}>Datos Sensibles</button>
                         </div>
                                 {showSensitiveData && (
-                                <div class="sensitiveData">
-                                    <p>Mail: {usuario.mail}</p>
-                                    <p>Año de nacimiento: {usuario.dateBth}</p>
-                                    <p>Session id: {usuario.sessionid}</p>
-                                    <p>Password: {usuario.password}</p>
-                                    <p>MFA: {String(usuario.MFA)}</p>
-                                    <p>Codigo 2FA: {usuario.number}</p>
-                                </div>)}
+                              <div className="sensitiveData">
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>Mail:</span> {usuario.mail}</p>
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>Año de nacimiento:</span> {usuario.dateBth}</p>
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>Session id:</span> {usuario.sessionid}</p>
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>Password:</span> {usuario.password}</p>
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>MFA:</span> {String(usuario.MFA)}</p>
+                                <p style={{ fontSize: '12px' }}><span style={{ fontWeight: 'bold' }}>Codigo 2FA:</span> {usuario.number}</p>
+                          </div>
+                          
+                                )}
                         </div>
                         <div className="custom-profile-stats">
                             <ul>

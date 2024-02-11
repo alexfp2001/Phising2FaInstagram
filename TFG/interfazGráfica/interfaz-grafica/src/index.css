@@ -509,3 +509,21 @@ head{
   margin: 0; /* This removes any default margin */
   padding: 0; /* This removes any default padding */
 }
+.logoImg{
+  position:absolute;
+  width: 10%;
+  margin-top: 1%;
+  margin-left: 3%;
+}
+.portada{
+  display: block; /* Hace que cada imagen ocupe su propia línea */
+  margin: auto;
+  margin-top:10%;
+}
+.portada1{
+  max-width: 500px;
+}
+.portada2{
+  display: block; /* Hace que cada imagen ocupe su propia línea */
+  margin: auto;
+}

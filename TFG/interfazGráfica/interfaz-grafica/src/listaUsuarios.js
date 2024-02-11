@@ -38,6 +38,7 @@ function ListaUsuarios({ onSelectUser }) {
   return (
     <div>
       <div className="bar">
+        <img class="logoImg" src="./fontbolt.png"/>
         <div className="wrap">
           <div className="search">
             <input type="text" className="searchTerm" placeholder="Busca por nombre de usuario" value={busqueda} onChange={handleBusquedaChange} />
