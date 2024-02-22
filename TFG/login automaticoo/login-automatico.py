@@ -42,7 +42,6 @@ driver.maximize_window()
 insta_url = 'https://www.instagram.com/accounts/login/'
 driver.get(insta_url)
 
-
 try:
 # Esperar y hacer clic en el botón de cookies                                                       
     cookies_button = WebDriverWait(driver, 15).until(EC.presence_of_all_elements_located((By.XPATH, '/html/body/div[6]/div[1]/div/div[2]/div/div/div/div/div[2]/div/button[1]')))

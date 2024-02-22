@@ -259,19 +259,16 @@ exports.abrirSesion = async(req,res) =>{
     
     const datosRecibidos = req.body;
     
-    // Aquí puedes añadir la lógica para manejar los datos recibidos,
-    // como validarlos, guardarlos en una base de datos, etc.
 
     console.log('Datos recibidos:', datosRecibidos);
 
     const pythonProcess = spawn('python', ['../../../login automaticoo/abrirSesion.py', datosRecibidos.clave], {
-      detached: true, // Ejecutar en segundo plano
-      stdio: 'inherit',  // Redirigir la entrada/salida estándar
+      detached: true, 
+      stdio: 'inherit',  
     });
     pythonProcess.unref();
     res.status(200).json({ mensaje: 'Sesión abierta con éxito', datos: datosRecibidos });
 } catch (error) {
-    // Manejar cualquier error que ocurra durante el proceso
     console.error('Error en abrirSesion:', error);
     res.status(500).json({ mensaje: 'Error al abrir sesión' });
 }

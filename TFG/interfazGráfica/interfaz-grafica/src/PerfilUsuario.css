@@ -520,7 +520,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
   }
   .custom-open-sesion {
     display: block;
-    width: 47%; /* Ajusta este valor al porcentaje deseado o usa un ancho fijo en píxeles */
+    width: 42vw; /* Ajusta este valor al porcentaje deseado o usa un ancho fijo en píxeles */
     padding: 15px 0;
     background-color: #0095f6;
     color: white;
@@ -536,6 +536,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
     border: 0.1rem solid #dbdbdb;
     border-radius: 0.3rem;
 }
+
 
  
   .custom-open-sesion:hover {
